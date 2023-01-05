@@ -39,12 +39,12 @@ const Item = ({ item, width }) => {
           alt={item.name}
           width="300px"
           height="400px"
-          src={`http://localhost:1337/${url}`}
+          src={`http://localhost:1337${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: 'pointer' }}
         />
         <Box
-          display={isHovered ? 'blocked' : 'none'}
+          display={isHovered ? 'block' : 'none'}
           position="absolute"
           bottom="10%"
           left="0"
@@ -55,7 +55,7 @@ const Item = ({ item, width }) => {
 
             {/* ITEM QUANTITY */}
             <Box display="flex" alignItems="center" backgroundColor={shades.neutral[100]} borderRadius="3px">
-              <IconButton onClick={() => setCount(Math.max(count -1, 1))}>
+              <IconButton onClick={() => setCount(Math.max(count - 1, 1))}>
                 <RemoveIcon />
               </IconButton>
               <Typography color={shades.primary[300]}>{count}</Typography>
@@ -67,7 +67,7 @@ const Item = ({ item, width }) => {
             {/* BUTTON */}
             <Button
               onClick={() => {
-                dispatch(addToCart({ item: { ...item, count }}));
+                dispatch(addToCart({ item: { ...item, count } }));
               }}
               sx={{ backgroundColor: shades.primary[300], color: 'white' }}
             >
@@ -80,9 +80,7 @@ const Item = ({ item, width }) => {
 
       <Box mt="3px">
         <Typography variant="subtitle2" color={neutral.dark}>
-          {category
-            .replace(/[A-Z]/g, " $1")
-            .replace(/^./, (str) => str.toUpperCase())}
+          {category?.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
         </Typography>
         <Typography>{name}</Typography>
         <Typography fontWeight="bold">${price}</Typography>
