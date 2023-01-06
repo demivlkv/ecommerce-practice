@@ -25,7 +25,7 @@ const ItemDetails = () => {
   // GET single item
   async function getItem() {
     const item = await fetch(
-      `https://liberte-e-commerce.herokuapp.com/api/items/${itemId}?populate=image`,
+      `http://localhost:1337/api/items/${itemId}?populate=image`,
       { method: 'GET' }
     );
     const itemJson = await item.json();
@@ -35,7 +35,7 @@ const ItemDetails = () => {
 
   async function getItems() {
     const items = await fetch(
-      'https://liberte-e-commerce.herokuapp.com/api/items?populate=image',
+      'http://localhost:1337/api/items?populate=image',
       { method: 'GET'}
     );
     const itemsJson = await items.json();
@@ -57,7 +57,7 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`https://liberte-e-commerce.herokuapp.com${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: 'contain' }}
           />
         </Box>
@@ -71,7 +71,7 @@ const ItemDetails = () => {
 
           <Box m="65px 0 25px 0">
             <Typography variant="h3">{item?.attributes?.name}</Typography>
-            <Typography>{item?.attributes?.price}</Typography>
+            <Typography>${item?.attributes?.price}</Typography>
             <Typography sx={{ mt: '20px' }}>{item?.attributes?.longDescription}</Typography>
           </Box>
 
