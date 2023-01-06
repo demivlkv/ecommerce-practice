@@ -1,7 +1,7 @@
 # Liberté
 This is a full-stack e-commerce web application that utilizes [Stripe](https://stripe.com/) to accept payments. In this application, users can add products into their cart, update the number of items in the cart, and then checkout with their billing/shipping information in order to make a payment via Stripe. This app is powered by [React](https://reactjs.org/) for the client-side, and [Strapi](https://strapi.io/) for the server-side.
 
-![screenshot: homepage](/../main/client/src/assets/screenshots-main.png)
+![screenshot: homepage](/../main/client/src/assets/screenshot-main.png)
 
 ## Table of Contents
 - [Technologies Used](#technologies-used)
@@ -30,7 +30,7 @@ This is a full-stack e-commerce web application that utilizes [Stripe](https://s
 2. Install ***all*** of the dependencies via command-line in terminal by entering `npm install` in the root directory of the application
 3. Start the application by running `npm run develop` in the root directory of the app. Then access `http://localhost:1337` to create a [Strapi](https://strapi.io/) account.
 4. Create a collection type called `Item`, and another collection called `Order`.
-5. Within the collection type `Order`, enter '**userName**' (text) and '**stripeSessionId**' (text) fields.
+5. Within the collection type `Order`, create '**userName**' (text) and '**stripeSessionId**' (text) fields.
 6. In the collection type `Item`, create the following fields: '**name**' (text), '**shortDescription**' (rich text), '**longDescription**' (rich text),'**price**' (number),'**image**' (media),'**category**' (enumeration).
 7. Under the `Content Manager` section, add all desired products to display in the app by clicking on `+ Create new entry`, and then enter all fields. Save, then publish each entry.
 8. Sign up for a [Stripe](https://stripe.com/) account to retrieve a `Publishable key` and `Secret key`.
@@ -47,12 +47,16 @@ Enter `npm run develop` at the root directory in terminal. This will start up th
 ![application demo](/../main/client/src/assets/demo.gif)
 
 ## Screenshots
+**Home page view:**
 ![screenshot: homepage](/../main/client/src/assets/screenshot-main.png)
 
+**Product detail view:**
 ![screenshot: product detail](/../main/client/src/assets/screenshot-itemdetail.png)
 
+**Cart view:**
 ![screenshot: cart](/../main/client/src/assets/screenshot-cart.png)
 
+**Checkout view:**
 ![screenshot: checkout](/../main/client/src/assets/screenshot-checkout.png)
 
 ## Questions
