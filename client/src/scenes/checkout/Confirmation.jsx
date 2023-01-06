@@ -1,8 +1,15 @@
 import React from 'react';
+import { Box, Alert, AlertTitle } from '@mui/material';
 
 const Confirmation = () => {
   return (
-    <div>Confirmation</div>
+    <Box m="90px auto" width="80%" height="50vh">
+      <Alert severity="success">
+        <AlertTitle>Success</AlertTitle>
+        You have successfully placed an order -{' '}
+        <strong>Thank you for shopping with us!</strong>
+      </Alert>
+    </Box>
   );
 };
 
