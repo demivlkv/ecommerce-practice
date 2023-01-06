@@ -3,10 +3,13 @@ import { useSelector } from 'react-redux';
 import { Box, Button, Stepper, Step, StepLabel } from '@mui/material';
 import { Formik } from 'formik';
 import * as yup from 'yup';
+import { loadStripe } from '@stripe/stripe-js';
 
 import Shipping from './Shipping';
 import Payment from './Payment';
 import { shades } from '../../theme';
+
+const stripePromise = loadStripe('pk_test_51MN7PuGTNqhY3wjT1rg1R9V1UjUYfST5Ajzd4DDyG58cvmFPTj0LTgr3dO0cQFCwhDobu3KKmjTNIAy6p6emK7Ik00xmmgaUPu');
 
 const initialValues = {
   billingAddress: {
@@ -111,7 +114,26 @@ const Checkout = () => {
   };
 
   async function makePayment(values) {
+    const stripe = await stripePromise;
+    const requestBody = {
+      userName: [values.firstName, values.lastName].join(' '),
+      email: values.email,
+      products: cart.map(({ id, count }) => ({
+        id,
+        count
+      }))
+    };
 
+    const response = await fetch('http://localhost:1337/api/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(requestBody)
+    });
+
+    const session = await response.json();
+    await stripe.redirectToCheckout({
+      sessionId: session.id
+    });
   };
 
   return (
@@ -190,7 +212,6 @@ const Checkout = () => {
                     borderRadius: 0,
                     padding: '15px 40px'
                   }}
-                  onClick={() => setActiveStep(activeStep - 1)}
                 >
                   {isFirstStep ? 'Next' : 'Place Order'}
                 </Button>

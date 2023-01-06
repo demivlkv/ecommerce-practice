@@ -30,7 +30,7 @@ const Footer = () => {
         </Box>
 
         <Box>
-          <Typography variant="h4" fontWeifght="bold" mb="30px">
+          <Typography variant="h4" fontWeight="bold" mb="30px">
             About Us
           </Typography>
           <Typography mb="30px">Careers</Typography>
@@ -40,7 +40,7 @@ const Footer = () => {
         </Box>
 
         <Box>
-          <Typography variant="h4" fontWeifght="bold" mb="30px">
+          <Typography variant="h4" fontWeight="bold" mb="30px">
             Customer Care
           </Typography>
           <Typography mb="30px">Help Center</Typography>
