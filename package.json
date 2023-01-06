@@ -1,0 +1,26 @@
+{
+  "name": "liberte-ecommerce",
+  "description": "E-commerce website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "develop": "concurrently \"cd server && npm run develop\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/demivlkv/liberte-ecommerce.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/demivlkv/liberte-ecommerce/issues"
+  },
+  "homepage": "https://github.com/demivlkv/liberte-ecommerce#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

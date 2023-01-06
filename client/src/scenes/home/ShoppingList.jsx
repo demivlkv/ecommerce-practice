@@ -17,7 +17,7 @@ const ShoppingList = () => {
   // get items from server (strapi)
   async function getItems() {
     const items = await fetch(
-      'http://localhost:1337/api/items?populate=image',
+      'https://liberte-e-commerce.herokuapp.com/api/items?populate=image',
       { method: 'GET'}
     );
     const itemsJson = await items.json();
